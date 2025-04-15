@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pedra, Papel e Tesoura</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navbar com placar -->
+  <header class="navbar">
+    <div class="score">
+      👤 Jogador: <span id="player-score">0</span>
+    </div>
+    <div class="score">
+      💻 Computador: <span id="computer-score">0</span>
+    </div>
+  </header>
+
+  <div class="game-container">
+    <h1>Pedra, Papel ou Tesoura</h1>
+
+    <div class="choices">
+      <button class="choice" data-choice="pedra">🪨 Pedra</button>
+      <button class="choice" data-choice="papel">📄 Papel</button>
+      <button class="choice" data-choice="tesoura">✂️ Tesoura</button>
+    </div>
+
+    <div class="results">
+      <p><strong>Você:</strong> <span id="player-choice">-</span></p>
+      <p><strong>Computador:</strong> <span id="computer-choice">-</span></p>
+      <h2 id="result">Faça sua escolha!</h2>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
