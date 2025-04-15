@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+piano (fácil)
+
+temporizador (médio)
+
+jogo da velha (difícil)
+=======
 Piano simples (fácil)
 Temporizador (médio)
 
@@ -164,3 +171,4 @@ Tecla A → Nota C
 Tecla S → Nota D
 
 etc.
+>>>>>>> 59e217e2512769ee71d94e476d482463da08dc55
