@@ -1,4 +1,6 @@
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 piano (fácil)
 
 temporizador (médio)
@@ -7,13 +9,8 @@ jogo da velha (difícil)
 =======
 Piano simples (fácil)
 Temporizador (médio)
+>>>>>>> 58473721791e5bdc9569607557180ee9ea67ebbb
 
-1️⃣ HTML – Estrutura básica das teclas
-Arquivo: index.html
-
-html
-Copiar
-Editar
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -46,6 +43,8 @@ Editar
   <script src="script.js"></script>
 </body>
 </html>
+<<<<<<< HEAD
+=======
 ✨ O que está acontecendo aqui?
 Criamos uma <div> com a classe piano, que contém 7 teclas (divs com classe key).
 
@@ -172,3 +171,4 @@ Tecla S → Nota D
 
 etc.
 >>>>>>> 59e217e2512769ee71d94e476d482463da08dc55
+>>>>>>> 58473721791e5bdc9569607557180ee9ea67ebbb
