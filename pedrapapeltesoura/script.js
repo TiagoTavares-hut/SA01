@@ -1,67 +1,53 @@
-const choices = document.querySelectorAll('.choice');
-const playerChoiceEl = document.getElementById('player-choice');
-const computerChoiceEl = document.getElementById('computer-choice');
-const resultEl = document.getElementById('result');
-
-const playerScoreEl = document.getElementById('player-score');
-const computerScoreEl = document.getElementById('computer-score');
-
 let playerScore = 0;
 let computerScore = 0;
 
-const options = ['pedra', 'papel', 'tesoura'];
+const playerScoreSpan = document.getElementById("player-score");
+const computerScoreSpan = document.getElementById("computer-score");
+const resultMessage = document.getElementById("result-message");
 
-choices.forEach(choice => {
-  choice.addEventListener('click', () => {
-    const playerChoice = choice.dataset.choice;
-    const computerChoice = getComputerChoice();
-    const result = determineWinner(playerChoice, computerChoice);
-
-    playerChoiceEl.textContent = formatChoice(playerChoice);
-    computerChoiceEl.textContent = formatChoice(computerChoice);
-    resultEl.textContent = result;
-
-    // Atualiza placar
-    if (result.includes('venceu')) {
-      playerScore++;
-    } else if (result.includes('perdeu')) {
-      computerScore++;
-    }
-
-    updateScore();
-  });
-});
+const choices = ["rock", "paper", "scissors"];
 
 function getComputerChoice() {
-  const randomIndex = Math.floor(Math.random() * 3);
-  return options[randomIndex];
+    const randomChoice = Math.floor(Math.random() * 3);
+    return choices[randomChoice];
 }
 
-function determineWinner(player, computer) {
-  if (player === computer) {
-    return 'Empate!';
-  }
+function determineWinner(playerChoice, computerChoice) {
+    if (playerChoice === computerChoice) {
+        return "Empate!";
+    }
 
-  if (
-    (player === 'pedra' && computer === 'tesoura') ||
-    (player === 'papel' && computer === 'pedra') ||
-    (player === 'tesoura' && computer === 'papel')
-  ) {
-    return 'Você venceu! 🎉';
-  } else {
-    return 'Você perdeu 😢';
-  }
+    if (
+        (playerChoice === "rock" && computerChoice === "scissors") ||
+        (playerChoice === "paper" && computerChoice === "rock") ||
+        (playerChoice === "scissors" && computerChoice === "paper")
+    ) {
+        playerScore++;
+        playerScoreSpan.textContent = playerScore;
+        return "Você ganhou!";
+    } else {
+        computerScore++;
+        computerScoreSpan.textContent = computerScore;
+        return "Você perdeu!";
+    }
 }
 
-function formatChoice(choice) {
-  switch (choice) {
-    case 'pedra': return '🪨 Pedra';
-    case 'papel': return '📄 Papel';
-    case 'tesoura': return '✂️ Tesoura';
-  }
+function playGame(playerChoice) {
+    const computerChoice = getComputerChoice();
+    const winnerMessage = determineWinner(playerChoice, computerChoice);
+    resultMessage.textContent = `Jogador escolheu: ${playerChoice}, Computador escolheu: ${computerChoice}. ${winnerMessage}`;
 }
 
-function updateScore() {
-  playerScoreEl.textContent = playerScore;
-  computerScoreEl.textContent = computerScore;
-}
+// Adicionando os event listeners para os botões do jogo
+document.getElementById("rock").addEventListener("click", () => playGame("rock"));
+document.getElementById("paper").addEventListener("click", () => playGame("paper"));
+document.getElementById("scissors").addEventListener("click", () => playGame("scissors"));
+
+// Resetando a pontuação
+document.getElementById("reset-button").addEventListener("click", () => {
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreSpan.textContent = playerScore;
+    computerScoreSpan.textContent = computerScore;
+    resultMessage.textContent = ""; // Limpa o resultado exibido
+});
